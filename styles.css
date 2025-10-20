@@ -1,0 +1,300 @@
+/* --- 1. CONFIGURAÇÃO BASE E TIPOGRAFIA (MOBILE-FIRST) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta de Cores Elegante */
+    --cor-fundo-principal: #FDFDFD;
+    --cor-fundo-card: #FFFFFF;
+    --cor-texto-principal: #333333;
+    --cor-destaque-vinho: #904C77; /* Principal: Sóbrio e literário */
+    --cor-acento-bronze: #C4A484; /* Acento: Sofisticado */
+    --cor-sombra-suave: rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Merriweather', serif; 
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-principal);
+    line-height: 1.7; 
+    padding-top: 60px; 
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; 
+    color: var(--cor-destaque-vinho);
+    margin-bottom: 0.5em;
+}
+
+main {
+    padding: 20px 20px 40px;
+}
+
+/* --- 2. CABEÇALHO E NAVEGAÇÃO (Mobile) --- */
+header {
+    background-color: var(--cor-fundo-card);
+    box-shadow: 0 2px 5px var(--cor-sombra-suave);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* Menu Hambúrguer */
+.mobile-nav button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--cor-destaque-vinho);
+}
+
+.mobile-nav ul {
+    display: none; 
+    position: absolute;
+    top: 60px; 
+    right: 0;
+    width: 100%;
+    background-color: var(--cor-fundo-card);
+    list-style: none;
+    box-shadow: 0 5px 5px var(--cor-sombra-suave);
+    padding: 0;
+}
+
+.mobile-nav ul.open {
+    display: block; 
+}
+
+.mobile-nav li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--cor-texto-principal);
+    border-bottom: 1px solid #eee;
+}
+
+/* --- 3. SEÇÃO DE DESTAQUE --- */
+.destaque-area {
+    margin-bottom: 40px;
+}
+
+.livro-destaque {
+    background-color: var(--cor-fundo-card);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--cor-sombra-suave);
+    padding: 20px;
+    margin-top: 20px;
+    text-decoration: none; /* Para ser clicável */
+    color: inherit;
+    display: block;
+}
+
+.capa-destaque {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.resumo-cita {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--cor-acento-bronze);
+    padding-left: 10px;
+}
+
+.btn-resenha {
+    display: inline-block;
+    background-color: var(--cor-destaque-vinho);
+    color: #FFF;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-resenha:hover {
+    background-color: #7a3d5e;
+}
+
+
+/* --- 4. FILTROS E GRID DE RESUMOS --- */
+.filtro-livros {
+    overflow-x: auto; 
+    white-space: nowrap;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.filtro-livros button {
+    background: none;
+    border: 1px solid var(--cor-acento-bronze);
+    color: var(--cor-texto-principal);
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filtro-livros button.active, .filtro-livros button:hover {
+    background-color: var(--cor-destaque-vinho);
+    color: var(--cor-fundo-card);
+    border-color: var(--cor-destaque-vinho);
+}
+
+#lista-resumos {
+    display: grid;
+    /* Padrão Mobile: 1 coluna */
+    grid-template-columns: 1fr; 
+    gap: 30px;
+}
+
+.resumo-card {
+    display: block;
+    background-color: var(--cor-fundo-card);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--cor-sombra-suave); 
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative; 
+}
+
+.resumo-card:active {
+    transform: scale(0.98); 
+}
+
+.card-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.capa-livro {
+    flex-shrink: 0;
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.card-info h4 {
+    color: var(--cor-destaque-vinho);
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Selo de Nota Elegante */
+.nota-selo {
+    position: absolute;
+    top: -10px; 
+    right: -10px;
+    background-color: var(--cor-acento-bronze);
+    color: #FFF;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estrelas de Rating */
+.rating {
+    color: #FFD700; /* Dourado */
+}
+
+/* --- 5. RODAPÉ E ASSINATURA --- */
+footer {
+    font-family: 'Merriweather', serif; 
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.85em;
+    color: #777;
+    border-top: 5px solid #EFEFEF; 
+}
+
+.assinatura {
+    margin-top: 10px;
+}
+
+.linkedin-link {
+    color: var(--cor-destaque-vinho);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.linkedin-link:hover {
+    color: var(--cor-acento-bronze);
+}
+
+/* --- 6. MEDIA QUERIES (DESKTOP E TABLETS) --- */
+@media (min-width: 768px) {
+    /* Layout em duas colunas para tablets/desktop */
+    #lista-resumos {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Mostrar menu normal e esconder hambúrguer */
+    .mobile-nav button {
+        display: none;
+    }
+    .mobile-nav {
+        flex-grow: 1; 
+        text-align: right;
+    }
+    .mobile-nav ul {
+        display: flex !important; 
+        position: static;
+        width: auto;
+        box-shadow: none;
+        justify-content: flex-end;
+    }
+    .mobile-nav li a {
+        border-bottom: none;
+        padding: 5px 15px;
+        margin-left: 15px;
+    }
+
+    /* Destaque em layout horizontal para telas maiores */
+    .livro-destaque {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        text-align: left;
+    }
+    .capa-destaque {
+        width: 180px;
+        height: 270px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+    .destaque-info {
+        flex-grow: 1;
+    }
+}

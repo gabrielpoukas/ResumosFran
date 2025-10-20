@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Resenhas da Fran</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo"> Resenhas da Fran</h1>
+        
+        <nav class="mobile-nav">
+            <button id="menu-toggle" aria-label="Abrir Menu">
+                <span class="hamburguer-icon">&#9776;</span>
+            </button>
+            <ul id="menu-list">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Sobre a Fran</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="destaque-area">
+            <h2>Destaque da Leitora</h2>
+            <article class="livro-destaque" id="destaque-card">
+                </article>
+        </section>
+
+        <section class="filtros-e-resumos">
+            <nav class="filtro-livros" id="filter-nav">
+                <button class="active" data-filter="all">Todos os Livros</button>
+                <button data-filter="favoritos">Favoritos 5★</button>
+                <button data-filter="ficcao">Ficção</button>
+                <button data-filter="nao-ficcao">Não-Ficção</button>
+            </nav>
+
+            <div id="lista-resumos">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Literata by Fran. Todos os direitos reservados.</p>
+        <p style="font-size: 0.7em; margin-top: 5px;">
+            Dados de capa fornecidos por cortesia do 
+            <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank" class="linkedin-link">Open Library</a>.
+        </p>
+        <p class="assinatura">
+            Desenvolvido com carinho por <strong>Gabriel Cardoso</strong>
+            <a href="https://www.linkedin.com/in/gabriel-alexandre-marques-cardoso-0041101ab/" target="_blank" class="linkedin-link">
+                Meu LinkedIn
+            </a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
