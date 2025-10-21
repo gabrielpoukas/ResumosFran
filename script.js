@@ -1,9 +1,7 @@
 // *************************************************************
 // REMOVIDA A FUNÇÃO getCoverUrl - AGORA USAMOS URLs DIRETAS
-// Lembre-se de substituir os placeholders [SUA URL DA CAPA REAL AQUI]
 // *************************************************************
 
-// SIMULAÇÃO DE DADOS (LIVROS DA SARAH J. MAAS - TRADUZIDOS PARA O PORTUGUÊS)
 const livros = [
     {
         id: 1,
@@ -12,11 +10,13 @@ const livros = [
         autor: "Sarah J. Maas",
         genero: "Ficção",
         // *** COLOQUE A URL DA CAPA REAL AQUI ***
-        capa_url: "https://m.media-amazon.com/images/I/81qMLIEhMYL._SL1500_.jpg", 
+        capa_url: "https://m.media-amazon.com/images/I/81qMLIEhMYL._SL1500_.jpg",
         data: "15/10/2025",
         nota: 5,
         resumo_curto: "O primeiro livro da aclamada série ACOTAR. Uma caçadora é arrastada para a terra encantada das Fadas. Romance épico!",
         link: "detalhes.html?id=1",
+        // NOVO CAMPO: Link para compra na Amazon (Exemplo de link real)
+        link_compra: "https://www.amazon.com.br/Corte-espinhos-rosas-Sarah-Maas/dp/8501105742", 
         tag: "favoritos",
         citacao: "Só porque você não pode ver algo, não significa que não está lá."
     },
@@ -27,11 +27,13 @@ const livros = [
         autor: "Sarah J. Maas",
         genero: "Ficção",
         // *** COLOQUE A URL DA CAPA REAL AQUI ***
-        capa_url: "https://m.media-amazon.com/images/I/714o30y2QYL._SL1000_.jpg", 
+        capa_url: "https://m.media-amazon.com/images/I/714o30y2QYL._SL1000_.jpg",
         data: "28/09/2025",
         nota: 4,
         resumo_curto: "Fantasia urbana adulta, repleta de anjos caídos, mistério e uma semifeérica em busca de vingança. Um novo universo fascinante.",
         link: "detalhes.html?id=2",
+        // NOVO CAMPO: Link para compra na Amazon (Exemplo de link real)
+        link_compra: "https://www.amazon.com.br/Casa-Terra-Sangue-Crescent-City/dp/8501117189",
         tag: "ficcao",
         citacao: "Meu nome é Bryce Quinlan. E eu não me curvarei a ninguém."
     },
@@ -42,11 +44,13 @@ const livros = [
         autor: "Sarah J. Maas",
         genero: "Ficção",
         // *** COLOQUE A URL DA CAPA REAL AQUI ***
-        capa_url: "https://m.media-amazon.com/images/I/41IQiCIipiL.jpg", 
+        capa_url: "https://m.media-amazon.com/images/I/41IQiCIipiL.jpg",
         data: "10/09/2025",
         nota: 5,
         resumo_curto: "A assassina mais temida do reino deve competir em um torneio para conquistar a liberdade. Intriga política e muita ação!",
         link: "detalhes.html?id=3",
+        // NOVO CAMPO: Link para compra na Amazon (Exemplo de link real)
+        link_compra: "https://www.amazon.com.br/Trono-Vidro-Sarah-Maas/dp/8501103758",
         tag: "favoritos",
         citacao: "Você não pode se curvar se não se partir primeiro."
     },
@@ -57,11 +61,13 @@ const livros = [
         autor: "Sarah J. Maas",
         genero: "Ficção",
         // *** COLOQUE A URL DA CAPA REAL AQUI ***
-        capa_url: "https://m.media-amazon.com/images/I/81v7KsiPF9L._SL1500_.jpg", 
+        capa_url: "https://m.media-amazon.com/images/I/81v7KsiPF9L._SL1500_.jpg",
         data: "01/08/2025",
         nota: 5,
         resumo_curto: "A épica continuação de ACOTAR. Feyre descobre a Corte Noturna e precisa lidar com promessas quebradas e um amor inesperado.",
         link: "detalhes.html?id=4",
+        // NOVO CAMPO: Link para compra na Amazon (Exemplo de link real)
+        link_compra: "https://www.amazon.com.br/Corte-N%C3%A9voa-F%C3%BAria-Sarah-Maas/dp/8501107958",
         tag: "favoritos",
         citacao: "Somos todos feitos de estrelas, e elas estão todas em desordem."
     }
@@ -82,11 +88,11 @@ function renderizarDestaque() {
     if (!destaqueCard || livros.length === 0) return;
 
     // Pega o livro mais recente (o primeiro no array) como destaque
-    const livro = livros[0]; 
+    const livro = livros[0];
     // AGORA USA A URL DIRETA
-    const capaURL = livro.capa_url; 
+    const capaURL = livro.capa_url;
 
-    // Atribui o link ao card
+    // Atribui o link principal ao card (para ir para a resenha)
     destaqueCard.href = livro.link;
 
     destaqueCard.innerHTML = `
@@ -99,7 +105,10 @@ function renderizarDestaque() {
             <h3>${livro.titulo}</h3>
             <p class="autor">Por ${livro.autor}</p>
             <p class="resumo-cita">"${livro.citacao}"</p>
-            <a href="${livro.link}" class="btn-resenha">Ler Resenha Completa</a>
+            <div class="destaque-acoes">
+                <a href="${livro.link}" class="btn-resenha">Ler Resenha Completa</a>
+                ${livro.link_compra ? `<a href="${livro.link_compra}" target="_blank" class="btn-comprar">Comprar Agora 🛒</a>` : ''}
+            </div>
         </div>
     `;
 }
@@ -118,7 +127,8 @@ function renderizarResumos(filter = 'all') {
         if (filter === 'favoritos') return livro.nota === 5;
         
         // Filtra por gênero.
-        return livro.genero.toLowerCase() === filter;
+        const generoNormalizado = (livro.genero === 'Não-Ficção') ? 'nao-ficcao' : livro.genero.toLowerCase();
+        return generoNormalizado === filter;
     });
 
     if (livrosFiltrados.length === 0) {
@@ -128,25 +138,30 @@ function renderizarResumos(filter = 'all') {
 
     livrosFiltrados.forEach(livro => {
         // AGORA USA A URL DIRETA
-        const capaURL = livro.capa_url; 
+        const capaURL = livro.capa_url;
 
-        const card = document.createElement('a');
-        card.href = livro.link; 
+        // ** Importante: Mudamos o elemento de 'a' para 'div' para que possamos ter múltiplos links no card **
+        const card = document.createElement('div'); 
         card.classList.add('resumo-card');
         
         card.innerHTML = `
             <span class="nota-selo">${livro.nota}★</span>
             <div class="card-content">
-                <img src="${capaURL}" 
-                    alt="Capa de ${livro.titulo}" 
-                    class="capa-livro"
-                    onerror="this.onerror=null; this.src='https://via.placeholder.com/80x120?text=Capa+Indisponível';"
-                >
+                <a href="${livro.link}" class="capa-link">
+                    <img src="${capaURL}" 
+                        alt="Capa de ${livro.titulo}" 
+                        class="capa-livro"
+                        onerror="this.onerror=null; this.src='https://via.placeholder.com/80x120?text=Capa+Indisponível';"
+                    >
+                </a>
                 <div class="card-info">
-                    <h4>${livro.titulo}</h4>
+                    <h4><a href="${livro.link}">${livro.titulo}</a></h4>
                     <p><strong>Autor:</strong> ${livro.autor}</p>
                     <p>${livro.resumo_curto}</p>
-                    <p>${criarEstrelas(livro.nota)} - ${livro.data}</p>
+                    <div class="resumo-acoes">
+                        <p class="resumo-data-rating">${criarEstrelas(livro.nota)}</p> 
+                        ${livro.link_compra ? `<a href="${livro.link_compra}" target="_blank" class="btn-resumo-comprar">Comprar Agora</a>` : ''}
+                    </div>
                 </div>
             </div>
         `;
@@ -186,5 +201,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // C. Inicialização: Renderiza o destaque e a lista de resumos ao carregar
     renderizarDestaque();
-    renderizarResumos(); 
+    renderizarResumos();
 });

@@ -17,23 +17,23 @@
 }
 
 body {
-    font-family: 'Merriweather', serif; 
+    font-family: 'Merriweather', serif;
     background-color: var(--cor-fundo-principal);
     color: var(--cor-texto-principal);
-    line-height: 1.7; 
-    padding-top: 60px; 
+    line-height: 1.7;
+    padding-top: 60px;
     overflow-x: hidden; /* Necessário para evitar barra horizontal com a animação */
 }
 
 h1, h2, h3 {
-    font-family: 'Playfair Display', serif; 
+    font-family: 'Playfair Display', serif;
     color: var(--cor-destaque-vinho);
-    margin-bottom: 0.7em; 
+    margin-bottom: 0.7em;
     line-height: 1.2;
 }
 
 main {
-    padding: 25px 25px 50px; 
+    padding: 25px 25px 50px;
 }
 
 a {
@@ -44,15 +44,15 @@ a {
 
 /* HOVER ATUALIZADO: Cor do link muda para preto */
 a:hover {
-    color: var(--cor-texto-principal); 
+    color: var(--cor-texto-principal);
 }
 
 
 /* --- 2. CABEÇALHO E NAVEGAÇÃO (Mobile) --- */
 header {
     background-color: var(--cor-fundo-card);
-    box-shadow: 0 4px 10px var(--cor-sombra-suave); 
-    padding: 10px 25px; 
+    box-shadow: 0 4px 10px var(--cor-sombra-suave);
+    padding: 10px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,16 +63,16 @@ header {
 }
 
 .logo {
-    font-size: 1.6em; 
+    font-size: 1.6em;
     letter-spacing: 2px;
     margin: 0;
     color: var(--cor-destaque-vinho);
-    font-weight: 700; 
+    font-weight: 700;
     display: flex;
     align-items: center;
 }
-.logo::before { 
-    content: '📚'; 
+.logo::before {
+    content: '📚';
     margin-right: 8px;
     font-size: 0.8em;
 }
@@ -81,7 +81,7 @@ header {
 .mobile-nav button {
     background: none;
     border: none;
-    font-size: 28px; 
+    font-size: 28px;
     cursor: pointer;
     color: var(--cor-destaque-vinho);
     padding: 5px;
@@ -96,20 +96,20 @@ header {
 
 
 .mobile-nav ul {
-    display: none; 
+    display: none;
     position: absolute;
-    top: 60px; 
+    top: 60px;
     right: 0;
     width: 100%;
     background-color: var(--cor-fundo-card);
     list-style: none;
-    box-shadow: 0 5px 10px var(--cor-sombra-suave); 
+    box-shadow: 0 5px 10px var(--cor-sombra-suave);
     padding: 0;
     border-top: 1px solid var(--cor-borda-detalhe);
 }
 
 .mobile-nav ul.open {
-    display: block; 
+    display: block;
 }
 
 .mobile-nav li a {
@@ -120,19 +120,19 @@ header {
     border-bottom: 1px solid var(--cor-borda-detalhe);
 }
 .mobile-nav li:last-child a {
-    border-bottom: none; 
+    border-bottom: none;
 }
 
 /* HOVER ATUALIZADO: Cor do link do menu de navegação fica preto no hover */
 .mobile-nav li a:hover {
-    background-color: #F0EDEB; 
-    color: var(--cor-texto-principal); 
+    background-color: #F0EDEB;
+    color: var(--cor-texto-principal);
 }
 
 
 /* --- 3. SEÇÃO DE DESTAQUE --- */
 .destaque-area {
-    margin-bottom: 50px; 
+    margin-bottom: 50px;
 }
 
 .destaque-area h2 {
@@ -143,8 +143,8 @@ header {
 }
 
 /* NOVIDADE: Linha decorativa mais elegante (pena) */
-.destaque-area h2::after { 
-    content: '--- 🖋️ ---'; 
+.destaque-area h2::after {
+    content: '--- 🖋️ ---';
     font-family: 'Merriweather', serif;
     font-size: 0.8em;
     color: var(--cor-acento-bronze);
@@ -156,12 +156,12 @@ header {
 
 .livro-destaque {
     background-color: var(--cor-fundo-card);
-    border-radius: 15px; 
+    border-radius: 15px;
     box-shadow: 0 8px 20px var(--cor-sombra-suave),
-                inset 0 0 5px rgba(0, 0, 0, 0.05); /* Sombra interna para efeito de papel */
+                 inset 0 0 5px rgba(0, 0, 0, 0.05); /* Sombra interna para efeito de papel */
     padding: 25px;
     margin-top: 25px;
-    text-decoration: none; 
+    text-decoration: none;
     color: inherit;
     display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -169,40 +169,48 @@ header {
 }
 
 .livro-destaque:hover {
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15),
-                inset 0 0 5px rgba(0, 0, 0, 0.05); 
+                 inset 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
 
 .capa-destaque {
     width: 100%;
-    max-height: 350px; 
+    max-height: 350px;
     object-fit: cover;
-    border-radius: 10px; 
+    border-radius: 10px;
     margin-bottom: 20px;
-    border: 1px solid var(--cor-borda-detalhe); 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+    border: 1px solid var(--cor-borda-detalhe);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .resumo-cita {
-    font-family: 'Playfair Display', serif; 
+    font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 1.1em;
-    color: #6A6A6A; 
+    color: #6A6A6A;
     margin-bottom: 20px;
-    border-left: 5px solid var(--cor-acento-bronze); 
+    border-left: 5px solid var(--cor-acento-bronze);
     padding-left: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+/* NOVO: Container para agrupar botões de Ação no Destaque */
+.destaque-acoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap; 
 }
 
 .btn-resenha {
     display: inline-block;
     background-color: var(--cor-destaque-vinho);
     color: #FFF;
-    padding: 12px 20px; 
-    border-radius: 30px; 
+    padding: 12px 20px;
+    border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
     letter-spacing: 0.5px;
@@ -211,6 +219,25 @@ header {
 
 .btn-resenha:hover {
     background-color: var(--cor-acento-bronze);
+}
+
+/* NOVO ESTILO: Botão Comprar Agora no Destaque */
+.btn-comprar {
+    display: inline-block;
+    background-color: #FF9900; /* Cor da Amazon */
+    color: var(--cor-texto-principal);
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border: 1px solid #CC6600;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-comprar:hover {
+    background-color: #E68A00;
+    color: var(--cor-texto-principal); 
 }
 
 
@@ -222,25 +249,25 @@ header {
 }
 
 .filtro-livros {
-    overflow-x: auto; 
+    overflow-x: auto;
     white-space: nowrap;
     padding: 10px 0 0 0; /* Ajustado para melhor visualização da aba */
     margin-bottom: 30px;
-    border-bottom: 2px solid var(--cor-borda-detalhe); 
+    border-bottom: 2px solid var(--cor-borda-detalhe);
 }
 
 .filtro-livros button {
-    background: #EFEFEF; 
-    border: 1px solid var(--cor-borda-detalhe); 
+    background: #EFEFEF;
+    border: 1px solid var(--cor-borda-detalhe);
     color: var(--cor-texto-principal);
     padding: 8px 18px;
     border-radius: 8px 8px 0 0; /* Efeito ABA */
-    margin-right: 5px; 
+    margin-right: 5px;
     margin-bottom: -2px; /* Pull up para sobrepor a linha inferior */
     cursor: pointer;
     font-weight: 700;
     transition: all 0.3s;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .filtro-livros button.active {
@@ -253,13 +280,13 @@ header {
     z-index: 10;
 }
 .filtro-livros button:hover:not(.active) {
-    background-color: #F8F8F8; 
+    background-color: #F8F8F8;
 }
 
 
 #lista-resumos {
     display: grid;
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
     gap: 30px;
 }
 
@@ -276,33 +303,34 @@ header {
 }
 
 .resumo-card {
-    display: block;
+    /* O card não é mais um 'a', é um 'div'. Mantenha a aparência de link, mas remova o display: block */
     background-color: var(--cor-fundo-card);
     border-radius: 12px;
-    box-shadow: 0 4px 12px var(--cor-sombra-suave); 
+    box-shadow: 0 4px 12px var(--cor-sombra-suave);
     padding: 20px;
     text-decoration: none;
     color: inherit;
     transition: box-shadow 0.3s, transform 0.3s;
-    position: relative; 
-    border-left: 5px solid var(--cor-acento-bronze); 
+    position: relative;
+    border-left: 5px solid var(--cor-acento-bronze);
     
     /* ANIMAÇÃO DE ENTRADA */
     animation: fadeInSlideUp 0.6s ease-out forwards;
     opacity: 0;
 }
 
+/* Efeito hover de profundidade no card */
+.resumo-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+
 /* Atraso sequencial para os 4 primeiros cards */
 .resumo-card:nth-child(1) { animation-delay: 0.1s; }
 .resumo-card:nth-child(2) { animation-delay: 0.2s; }
 .resumo-card:nth-child(3) { animation-delay: 0.3s; }
 .resumo-card:nth-child(4) { animation-delay: 0.4s; }
-
-
-.resumo-card:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px); 
-}
 
 
 .card-content {
@@ -313,7 +341,7 @@ header {
 
 .capa-livro {
     flex-shrink: 0;
-    width: 90px; 
+    width: 90px;
     height: 140px;
     object-fit: cover;
     border-radius: 4px;
@@ -325,6 +353,14 @@ header {
     font-size: 1.2em;
     margin-bottom: 5px;
 }
+/* Link do título dentro do card */
+.card-info h4 a {
+    color: var(--cor-destaque-vinho);
+}
+.card-info h4 a:hover {
+    color: var(--cor-texto-principal);
+}
+
 
 .card-info p {
     font-size: 0.95em;
@@ -332,36 +368,68 @@ header {
     margin-bottom: 8px;
 }
 
+/* NOVO: Container para agrupar rating e o botão de compra nos cards de resumo */
+.resumo-acoes {
+    display: flex;
+    justify-content: space-between; /* Para separar rating e botão */
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Para telas muito pequenas */
+    gap: 10px;
+}
+
+.resumo-acoes p {
+    margin-bottom: 0; /* Remove a margem extra do parágrafo */
+}
+
+/* NOVO ESTILO: Botão Comprar Agora nos Cards de Resumo */
+.btn-resumo-comprar {
+    background-color: var(--cor-acento-bronze); 
+    color: #FFF;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.1s;
+    flex-shrink: 0; 
+}
+
+.btn-resumo-comprar:hover {
+    background-color: var(--cor-destaque-vinho); 
+    color: #FFF;
+}
+
+
 /* Selo de Nota Elegante */
 .nota-selo {
     position: absolute;
-    top: -12px; 
+    top: -12px;
     right: -12px;
-    background-color: var(--cor-destaque-vinho); 
+    background-color: var(--cor-destaque-vinho);
     color: #FFF;
     font-weight: 700;
     padding: 10px 12px;
     border-radius: 50%;
     font-size: 0.9em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    border: 3px solid var(--cor-fundo-card); 
+    border: 3px solid var(--cor-fundo-card);
 }
 
 /* Estrelas de Rating */
 .rating {
-    color: #FFC72C; 
+    color: #FFC72C;
     font-size: 1.1em;
 }
 
 /* --- 5. RODAPÉ E ASSINATURA --- */
 footer {
-    font-family: 'Merriweather', serif; 
+    font-family: 'Merriweather', serif;
     text-align: center;
     padding: 30px 25px;
     font-size: 0.85em;
     color: #777;
-    background-color: #EFEFEF; 
-    border-top: 8px solid var(--cor-acento-bronze); 
+    background-color: #EFEFEF;
+    border-top: 8px solid var(--cor-acento-bronze);
 }
 
 .assinatura {
@@ -380,8 +448,58 @@ footer {
     color: var(--cor-texto-principal);
 }
 
+/* --- 6. SEÇÃO SOBRE A FRAN (NOVO ESTILO) --- */
+.sobre-a-fran-area {
+    background-color: var(--cor-fundo-card);
+    padding: 40px 25px;
+    margin-bottom: 50px;
+    /* Linhas de destaque elegante */
+    border-bottom: 5px solid var(--cor-borda-detalhe);
+    border-top: 5px solid var(--cor-acento-bronze);
+    text-align: center;
+}
 
-/* --- 6. MEDIA QUERIES (DESKTOP E TABLETS) --- */
+.sobre-a-fran-area h2 {
+    color: var(--cor-destaque-vinho);
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.perfil-card {
+    display: flex;
+    flex-direction: column; /* Padrão Mobile: Empilhado */
+    align-items: center;
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%; /* Foto redonda, profissional */
+    border: 5px solid var(--cor-acento-bronze);
+    box-shadow: 0 4px 10px var(--cor-sombra-suave);
+}
+
+.perfil-texto p {
+    margin-bottom: 15px;
+    color: var(--cor-texto-principal);
+}
+
+.leitora-assinatura {
+    margin-top: 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    color: var(--cor-destaque-vinho);
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+/* --- 7. MEDIA QUERIES (DESKTOP E TABLETS) --- */
 @media (min-width: 768px) {
     /* Layout em duas colunas para tablets/desktop */
     #lista-resumos {
@@ -393,11 +511,11 @@ footer {
         display: none;
     }
     .mobile-nav {
-        flex-grow: 1; 
+        flex-grow: 1;
         text-align: right;
     }
     .mobile-nav ul {
-        display: flex !important; 
+        display: flex !important;
         position: static;
         width: auto;
         box-shadow: none;
@@ -413,18 +531,43 @@ footer {
     /* Destaque em layout horizontal para telas maiores */
     .livro-destaque {
         display: flex;
-        gap: 40px; 
-        align-items: center;
+        gap: 40px;
+        align-items: flex-start; /* Ajuste para alinhar melhor o topo */
         text-align: left;
     }
     .capa-destaque {
-        width: 200px; 
+        width: 200px;
         height: 300px;
         flex-shrink: 0;
         margin-bottom: 0;
     }
     .destaque-info {
         flex-grow: 1;
+        padding-top: 10px;
+    }
+    
+    .destaque-acoes {
+        margin-top: 30px;
+        flex-wrap: nowrap;
+    }
+    
+    /* Layout Sobre a Fran - Desktop */
+    .perfil-card {
+        flex-direction: row; /* Desktop: Lado a lado */
+        align-items: flex-start;
+        text-align: justify;
+    }
+
+    .foto-perfil {
+        width: 180px;
+        height: 180px;
+        /* Garantir que não encolha em layouts flexíveis */
+        flex-shrink: 0;
+    }
+    
+    /* Garante que o rating e o botão fiquem na mesma linha */
+    .resumo-acoes {
+        flex-wrap: nowrap;
     }
 }
 
@@ -437,6 +580,6 @@ footer {
         padding-right: 0;
     }
     header {
-        padding: 10px calc(50% - 600px); 
+        padding: 10px calc(50% - 600px);
     }
 }
