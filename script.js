@@ -1,14 +1,6 @@
 // *************************************************************
-// FUNÇÃO PARA CHAMAR A API DE CAPAS (OPEN LIBRARY)
-// *************************************************************
-function getCoverUrl(isbn, size = 'M') {
-    if (!isbn) {
-        // Imagem de placeholder elegante em caso de falta de ISBN
-        return 'https://via.placeholder.com/80x120?text=Sem+Capa';
-    }
-    // Constrói a URL da Open Library
-    return `https://covers.openlibrary.org/b/isbn/${isbn}-${size}.jpg`;
-}
+// REMOVIDA A FUNÇÃO getCoverUrl - AGORA USAMOS URLs DIRETAS
+// Lembre-se de substituir os placeholders [SUA URL DA CAPA REAL AQUI]
 // *************************************************************
 
 // SIMULAÇÃO DE DADOS (LIVROS DA SARAH J. MAAS - TRADUZIDOS PARA O PORTUGUÊS)
@@ -19,8 +11,8 @@ const livros = [
         titulo: "Corte de Espinhos e Rosas",
         autor: "Sarah J. Maas",
         genero: "Ficção",
-        // ISBN (ACOTAR #1) - Mantemos o ISBN americano para a API
-        isbn: "9781619634442", 
+        // *** COLOQUE A URL DA CAPA REAL AQUI ***
+        capa_url: "https://m.media-amazon.com/images/I/81qMLIEhMYL._SL1500_.jpg", 
         data: "15/10/2025",
         nota: 5,
         resumo_curto: "O primeiro livro da aclamada série ACOTAR. Uma caçadora é arrastada para a terra encantada das Fadas. Romance épico!",
@@ -34,8 +26,8 @@ const livros = [
         titulo: "Casa de Terra e Sangue",
         autor: "Sarah J. Maas",
         genero: "Ficção",
-        // ISBN (Crescent City #1)
-        isbn: "9781635574043", 
+        // *** COLOQUE A URL DA CAPA REAL AQUI ***
+        capa_url: "https://m.media-amazon.com/images/I/714o30y2QYL._SL1000_.jpg", 
         data: "28/09/2025",
         nota: 4,
         resumo_curto: "Fantasia urbana adulta, repleta de anjos caídos, mistério e uma semifeérica em busca de vingança. Um novo universo fascinante.",
@@ -49,8 +41,8 @@ const livros = [
         titulo: "Trono de Vidro",
         autor: "Sarah J. Maas",
         genero: "Ficção",
-        // ISBN (Throne of Glass #1)
-        isbn: "9781619630635", 
+        // *** COLOQUE A URL DA CAPA REAL AQUI ***
+        capa_url: "https://m.media-amazon.com/images/I/41IQiCIipiL.jpg", 
         data: "10/09/2025",
         nota: 5,
         resumo_curto: "A assassina mais temida do reino deve competir em um torneio para conquistar a liberdade. Intriga política e muita ação!",
@@ -64,8 +56,8 @@ const livros = [
         titulo: "Corte de Névoa e Fúria",
         autor: "Sarah J. Maas",
         genero: "Ficção",
-        // ISBN (ACOTAR #2)
-        isbn: "9781619635845", 
+        // *** COLOQUE A URL DA CAPA REAL AQUI ***
+        capa_url: "https://m.media-amazon.com/images/I/81v7KsiPF9L._SL1500_.jpg", 
         data: "01/08/2025",
         nota: 5,
         resumo_curto: "A épica continuação de ACOTAR. Feyre descobre a Corte Noturna e precisa lidar com promessas quebradas e um amor inesperado.",
@@ -91,16 +83,17 @@ function renderizarDestaque() {
 
     // Pega o livro mais recente (o primeiro no array) como destaque
     const livro = livros[0]; 
-    const capaURL = getCoverUrl(livro.isbn, 'L'); // Usa tamanho Grande
+    // AGORA USA A URL DIRETA
+    const capaURL = livro.capa_url; 
 
     // Atribui o link ao card
     destaqueCard.href = livro.link;
 
     destaqueCard.innerHTML = `
         <img src="${capaURL}" 
-             alt="Capa do Livro ${livro.titulo}" 
-             class="capa-destaque"
-             onerror="this.onerror=null; this.src='https://via.placeholder.com/180x270?text=Capa+Indisponível';"
+            alt="Capa do Livro ${livro.titulo}" 
+            class="capa-destaque"
+            onerror="this.onerror=null; this.src='https://via.placeholder.com/180x270?text=Capa+Indisponível';"
         >
         <div class="destaque-info">
             <h3>${livro.titulo}</h3>
@@ -124,7 +117,7 @@ function renderizarResumos(filter = 'all') {
         if (filter === 'all') return true;
         if (filter === 'favoritos') return livro.nota === 5;
         
-        // Filtra por gênero. Assumimos todos os livros SJM como "Ficção"
+        // Filtra por gênero.
         return livro.genero.toLowerCase() === filter;
     });
 
@@ -134,8 +127,8 @@ function renderizarResumos(filter = 'all') {
     }
 
     livrosFiltrados.forEach(livro => {
-        // CHAMA A FUNÇÃO API AQUI
-        const capaURL = getCoverUrl(livro.isbn, 'M'); // Usa tamanho Médio para os cards
+        // AGORA USA A URL DIRETA
+        const capaURL = livro.capa_url; 
 
         const card = document.createElement('a');
         card.href = livro.link; 
@@ -145,9 +138,9 @@ function renderizarResumos(filter = 'all') {
             <span class="nota-selo">${livro.nota}★</span>
             <div class="card-content">
                 <img src="${capaURL}" 
-                     alt="Capa de ${livro.titulo}" 
-                     class="capa-livro"
-                     onerror="this.onerror=null; this.src='https://via.placeholder.com/80x120?text=Capa+Indisponível';"
+                    alt="Capa de ${livro.titulo}" 
+                    class="capa-livro"
+                    onerror="this.onerror=null; this.src='https://via.placeholder.com/80x120?text=Capa+Indisponível';"
                 >
                 <div class="card-info">
                     <h4>${livro.titulo}</h4>
